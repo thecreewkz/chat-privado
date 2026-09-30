@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Privado</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Tela de Login -->
+  <div id="login-screen" class="screen active">
+    <div class="login-container">
+      <h1>💬 Chat Privado</h1>
+      <p>Entre com seu nome para começar</p>
+      <input type="text" id="username-input" placeholder="Seu nome" maxlength="20">
+      <button id="login-btn">Entrar</button>
+    </div>
+  </div>
+
+  <!-- Tela do Chat -->
+  <div id="chat-screen" class="screen">
+    <div class="chat-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2>Usuários Online</h2>
+        </div>
+        <ul id="user-list"></ul>
+      </aside>
+
+      <!-- Área Principal -->
+      <main class="chat-main">
+        <!-- Estado sem conversa -->
+        <div id="no-conversation" class="no-conversation">
+          <p>Selecione um usuário para iniciar uma conversa privada</p>
+        </div>
+
+        <!-- Janela de Conversa -->
+        <div id="conversation" class="conversation hidden">
+          <div class="conversation-header">
+            <h3 id="conversation-title"></h3>
+            <span id="typing-indicator" class="typing-indicator hidden">digitando...</span>
+          </div>
+          <div id="messages" class="messages"></div>
+          <div class="message-input-area">
+            <input type="text" id="message-input" placeholder="Digite sua mensagem..." maxlength="500">
+            <button id="send-btn">Enviar</button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
